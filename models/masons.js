@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const masonsSchema = new mongoose.Schema({
     id_mason:{type: mongoose.Schema.Types.ObjectId, ref: "masons"},
     nombre: String,
-    apellido: String,
+    email: String,
     tipo_empleo: String,
     telefono: Number, 
 });
