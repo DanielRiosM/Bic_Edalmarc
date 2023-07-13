@@ -39,12 +39,12 @@ router.post('/signup', (req, res) => {
 
         //Password handling
         const saltRounds = 10;
-        bcrypt.hash(contrasena, saltRounds).then(hashedPassword => {
-          const newAdmin = new User({
+        bcrypt.hash(password, saltRounds).then(hashedPassword => {
+          const newAdmin = new administrator({
             nombre,
             email,
             telefono,
-            password: hashedPassword
+            password: hashedPassword,
           });
 
           newAdmin.save().then(result => {
