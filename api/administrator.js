@@ -7,9 +7,9 @@ const bcrypt = require("bcrypt");
 //sign up
 router.post('/signup', (req, res) => {
   let nombre = req.body.nombre;
-  let email = req.body.email
-  let telefono = req.body.telefono
-  let password = req.body.password
+  let email = req.body.email;
+  let telefono = req.body.telefono;
+  let password = req.body.password;
   if (nombre == "" || email == "" || telefono == "" || password == "") {
     res.json({
       status: "FAILED",
@@ -27,7 +27,7 @@ router.post('/signup', (req, res) => {
     })
   } else {
     //Checking if user already exists
-    User.find({ email }).then(result => {
+    administrator.find({ email }).then(result => {
       if (result.length) {
         // A user already exists
         res.json({
@@ -40,14 +40,14 @@ router.post('/signup', (req, res) => {
         //Password handling
         const saltRounds = 10;
         bcrypt.hash(contrasena, saltRounds).then(hashedPassword => {
-          const newUser = new User({
+          const newAdmin = new User({
             nombre,
             email,
             telefono,
             password: hashedPassword
           });
 
-          newUser.save().then(result => {
+          newAdmin.save().then(result => {
             res.json({
               status: "SUCCESS",
               message: "Sign up successful!",
