@@ -1,4 +1,4 @@
-const mongoose = requiere('mongoose');
+const mongoose = require('mongoose');
 
 const AdministratorSchema = new mongoose.Schema({
     nombre: String,
@@ -6,5 +6,6 @@ const AdministratorSchema = new mongoose.Schema({
     telefono: Number,
     password: String,
 });
-const Administrator = mongoose.model('Administrator', AdministratorSchema);
-module.exports = Administrator;
+
+const administrator = mongoose.model('administrator', AdministratorSchema);
+module.exports = administrator;
