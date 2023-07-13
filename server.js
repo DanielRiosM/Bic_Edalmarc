@@ -17,11 +17,11 @@ app.use(
 );
 //
 // const UserRouter = require("./api/User");
-//const AdminRouter = require("./api/administrator");
-//const MasonsRouter = require("./api/masons");
+const AdminRouter = require("./api/administrator");
+const MasonsRouter = require("./api/masons");
 // app.use("/user", UserRouter);
-//app.use("/administrator", AdminRouter);
-//app.use("/masons", MasonsRouter);
+app.use("/administrator", AdminRouter);
+app.use("/masons", MasonsRouter);
 
 app.listen(process.env.PORT, () => {
   console.log(`server running on port ${process.env.PORT}`);
