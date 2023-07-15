@@ -9,5 +9,5 @@ const masonsSchema = new mongoose.Schema({
     telefono: Number, 
 });
 
-const Masons = mongoose.model("Masons",masonsSchema);
-module.exports = Masons;
+const masons = mongoose.model("masons",masonsSchema);
+module.exports = masons;
