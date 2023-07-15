@@ -156,4 +156,42 @@ router.post("/signin", (req, res) => {
   }
 });
 
+//Read Masons
+router.get("/read/:id", async (req, res) => {
+  let id = req.params.id;
+  await masons.findById(id).exec((err, result) => {
+    try {
+      if (err) {
+        return res.send(err);
+      }
+      result.tipo_empleo = String(result.tipo_empleo);
+      res.json({
+        status: "SUCCESS",
+        message: "Carrier succesfully found",
+        data: result,
+      });
+    } catch (error) {
+      return res.status(500).json({
+        status: "FAILED",
+        message: "Ocurrió un error al obtener los datos del tecnico.",
+      });
+    }
+  });
+});
+
+//get Masons
+router.get("/read", async (req, res) => {
+  masons.find({}, (err, result) => {
+    if (err) {
+      res.send(err);
+    }
+    //res.send(result);
+    res.json({
+      status: "SUCCESS",
+      message: "Carrier successfully obtained",
+      data: result,
+    });
+  });
+});
+
 module.exports = router;
