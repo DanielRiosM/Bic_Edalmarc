@@ -21,7 +21,7 @@ router.post("/createInform", (req, res) => {
       ) {
         res.json({
           status: "FAILED",
-          message: "Empty input fileds",
+          message: "Empty input fields",
         });
       } else if (
         !/[^0-9\.\,\"\?\!\;\:\#\$\%\&\(\)\*\+\-\/\<\>\=\@\[\]\\\^\_\{\}\|\~]*$/.test(
