@@ -8,8 +8,8 @@ const informSchema = new mongoose.Schema({
     descripcion: Array,
     materiales: Array,
     monto: Number,
-    imagen: Image,
-    firma: Image,
+    imagen: String,
+    firma: String,
 });
 
 const Inform = mongoose.model("Inform", informSchema);
