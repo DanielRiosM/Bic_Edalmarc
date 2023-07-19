@@ -78,4 +78,18 @@ router.post("/createInform", (req, res) => {
       }
 });
 
+//get inform
+router.get("/read", async (req, res) => {
+  inform.find({}, (err, result) => {
+    if (err) {
+      res.send(err);
+    }
+    res.json({
+      status: "SUCCESS",
+      message: "Inform succesful obtained",
+      data: result,
+    });
+  });
+});
+
 module.exports = router;
