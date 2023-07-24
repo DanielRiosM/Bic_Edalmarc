@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 
+
+
+
+
 const masonsSchema = new mongoose.Schema({
     id_mason:{type: mongoose.Schema.Types.ObjectId, ref: "masons"},
     nombre: String,
@@ -8,6 +12,8 @@ const masonsSchema = new mongoose.Schema({
     tipo_empleo: String,
     telefono: Number, 
 });
+
+
 
 const masons = mongoose.model("masons",masonsSchema);
 module.exports = masons;
