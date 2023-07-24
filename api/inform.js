@@ -8,16 +8,14 @@ router.post("/createInform", (req, res) => {
     let descripcion = req.body.descripcion;
     let materiales = req.body.materiales;
     let monto = req.body.monto;
-    let imagen = req.body.imagen;
-    let firma = req.body.firma;
+    let imgUrl = req.body.imgUrl;
+    let firmaUrl = req.body.firmaUrl;
     if (
         fechaInicio == "" ||
         fechaFinal == "" ||
         descripcion == "" ||
         materiales == "" ||
-        monto == "" ||
-        imagen == "" ||
-        firma == "" 
+        monto == "" 
       ) {
         res.json({
           status: "FAILED",
@@ -57,9 +55,17 @@ router.post("/createInform", (req, res) => {
             descripcion,
             materiales,
             monto,
-            imagen,
-            firma,
+            imgUrl,
+            firmaUrl,
           });
+          if (req.file) {
+            const { filename } = req.file
+            newInform.setImgUrl(filename)
+          }
+          if (req.file) {
+            const { filename } = req.file
+            newInform.setFirmaUrl(filename)
+          }
           newInform
             .save()
             .then((result) => {
