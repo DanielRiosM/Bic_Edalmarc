@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
 
 mongoose
-    .connect(process.env.MONGODB_URI, {
+    .connect("mongodb+srv://Edalmarc:udrNYnjBDhQvub8x@bic-edalmarc.svgqcpw.mongodb.net/Edalmarc?retryWrites=true&w=majority", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
