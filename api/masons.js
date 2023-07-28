@@ -167,7 +167,7 @@ router.get("/read/:id", async (req, res) => {
       result.tipo_empleo = String(result.tipo_empleo);
       res.json({
         status: "SUCCESS",
-        message: "Carrier succesfully found",
+        message: "Masons succesfully found",
         data: result,
       });
     } catch (error) {
@@ -188,7 +188,7 @@ router.get("/read", async (req, res) => {
     //res.send(result);
     res.json({
       status: "SUCCESS",
-      message: "Carrier successfully obtained",
+      message: "Masosn successfully obtained",
       data: result,
     });
   });
