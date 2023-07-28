@@ -1,8 +1,8 @@
 //Import env
 require("dotenv").config();
 //mongodb
-//require("./config/db");
-require("./config/dbMongo")
+require("./config/db");
+//require("./config/dbMongo")
 
 const app = require("express")();
 const express = require("express");
@@ -29,8 +29,7 @@ app.use("/client", ClientRouter);
 app.use("/inform", InformRouter);
 
 app.use("/public", express.static(`${__dirname}/storage/img`));
-/*
+
 app.listen(process.env.PORT, () => {
   console.log(`server running on port ${process.env.PORT}`);
 });
-*/
