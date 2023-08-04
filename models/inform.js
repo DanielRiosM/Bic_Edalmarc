@@ -9,8 +9,7 @@ const informSchema = new mongoose.Schema({
   descripcion: Array,
   materiales: Array,
   monto: Number,
-  imgUrl: String,
-  firmaUrl: String,
+  
 });
 
 const Inform = mongoose.model("Inform", informSchema);
