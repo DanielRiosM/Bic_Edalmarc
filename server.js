@@ -3,7 +3,6 @@ require("dotenv").config();
 //mongodb
 require("./config/db");
 
-
 const app = require("express")();
 const express = require("express");
 //cors
@@ -22,13 +21,16 @@ const AdminRouter = require("./api/administrator");
 const MasonsRouter = require("./api/masons");
 const ClientRouter = require("./api/client");
 const InformRouter = require("./api/inform");
+const ImageRouter = require("./api/images");
 // app.use("/user", UserRouter);
 app.use("/administrator", AdminRouter);
 app.use("/masons", MasonsRouter);
 app.use("/client", ClientRouter);
 app.use("/inform", InformRouter);
+app.use("/images", ImageRouter);
 
-app.use("/public", express.static(`${__dirname}/storage/img`));
+app.use(express.static('public'));
+app.use(express.urlencoded({extended: true}));
 
 app.listen(process.env.PORT, () => {
   console.log(`server running on port ${process.env.PORT}`);
