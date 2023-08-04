@@ -9,6 +9,7 @@ const informSchema = new mongoose.Schema({
   descripcion: Array,
   materiales: Array,
   monto: Number,
+  
 });
 
 const Inform = mongoose.model("Inform", informSchema);
