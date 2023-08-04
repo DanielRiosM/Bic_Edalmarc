@@ -13,15 +13,5 @@ const informSchema = new mongoose.Schema({
   firmaUrl: String,
 });
 
-informSchema.methods.setImgUrl = function setImgUrl(filename){
-    const {host, port } = appConfig
-    this.imgUrl = `${host}:${port}/public/${filename}` 
-}
-
-informSchema.methods.setFirmaUrl = function setFirmaUrl(filename){
-    const {host, port } = appConfig
-    this.firmaUrl = `${host}:${port}/public/${filename}` 
-}
-
 const Inform = mongoose.model("Inform", informSchema);
 module.exports = Inform;
