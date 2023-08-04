@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const inform = require("../models/inform");
-const upload = require("../libs/storage");
-const { addProduct } = require("../controllers/productController");
 
 router.post("/createInform", (req, res) => {
   let fechaInicio = req.body.fechaInicio;
@@ -88,8 +86,5 @@ router.get("/read", async (req, res) => {
   });
 });
 
-//Subir imagen
-router.post("/subirImagen", upload.single("imgUrl"), addProduct);
-router.post("/subirFirma", upload.single("firmaUrl"), addProduct);
 
 module.exports = router;
