@@ -22,12 +22,14 @@ const MasonsRouter = require("./api/masons");
 const ClientRouter = require("./api/client");
 const InformRouter = require("./api/inform");
 const ImageRouter = require("./api/images");
+const FirmaRouter = require("./api/firma");
 // app.use("/user", UserRouter);
 app.use("/administrator", AdminRouter);
 app.use("/masons", MasonsRouter);
 app.use("/client", ClientRouter);
 app.use("/inform", InformRouter);
 app.use("/images", ImageRouter);
+app.use("/firmas", FirmaRouter);
 
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
