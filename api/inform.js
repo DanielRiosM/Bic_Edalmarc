@@ -8,12 +8,14 @@ router.post("/createInform", (req, res) => {
   let descripcion = req.body.descripcion;
   let materiales = req.body.materiales;
   let monto = req.body.monto;
+  let responsable = req.body.responsable;
   if (
     fechaInicio == "" ||
     fechaFinal == "" ||
     descripcion == "" ||
     materiales == "" ||
-    monto == ""
+    monto == "" ||
+    responsable == ""
   ) {
     res.json({
       status: "FAILED",
@@ -46,13 +48,23 @@ router.post("/createInform", (req, res) => {
       status: "FAILED",
       message: "Invalid fechaFinal entry",
     });
+  } else if (
+    !/[^0-9\.\,\"\?\!\;\:\#\$\%\&\(\)\*\+\-\/\<\>\=\@\[\]\\\^\_\{\}\|\~]*$/.test(
+      responsable
+    )
+  ) {
+    res.json({
+      status: "FAILED",
+      message: "Invalid fechaFinal entry",
+    });
   } else {
     const newInform = new inform({
       fechaInicio,
       fechaFinal,
       descripcion,
       materiales,
-      monto
+      monto,
+      responsable
     });
     newInform
       .save()
