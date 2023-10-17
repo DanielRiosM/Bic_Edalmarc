@@ -6,7 +6,15 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 router.post("/upload", upload.single("image"), async (req, res) => {
+  let id_mason = req.body.id_mason;
+  if (id_mason == "") {
+    res.json({
+      status: "FAILED",
+      message: "No se encontro el id del tecnico",
+    });
+  }
   const image = new Image({
+    id_mason,
     name: req.file.originalname,
     image: {
       data: req.file.buffer,
@@ -17,22 +25,27 @@ router.post("/upload", upload.single("image"), async (req, res) => {
   //save image
   await image.save();
 
-  res.json({
-    status: "SUCCESS",
-    message: "Imagen guardada",
+  image.save().then((result) => {
+    res.json({
+      status: "SUCCESS",
+      message: "Imagen guardada",
+      data: result,
+    });
   });
 });
 
 //leer imagenes guardadas
-router.get("/read", async (req, res) => {
-  Image.find({}, (err, result) => {
+router.get("/readImage/:id", async (req, res) => {
+  const id = req.params.id;
+  Image.find({id_mason: id}, (err, result) => {
+    console.log("")
     if (err) {
       res.send(err);
     }
     res.json({
       status: "SUCCESSS",
       message: "Imagenes encontradas",
-      data: result
+      data: result,
     });
   });
 });
@@ -43,5 +56,4 @@ router.get("/view", async (req, res) => {
 
   res.render("images", { images: images });
 });
-
 module.exports = router;
