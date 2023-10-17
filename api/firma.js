@@ -28,6 +28,7 @@ router.post("/upload", upload.single("firma"), async (req, res) => {
   res.json({
     status: "SUCCESS",
     message: "Firma guardada",
+    data: result,
   });
 });
 
@@ -40,7 +41,7 @@ router.get("/read", async (req, res) => {
     res.json({
       status: "SUCCESSS",
       message: "Firmas encontradas",
-      data: result
+      data: result,
     });
   });
 });
