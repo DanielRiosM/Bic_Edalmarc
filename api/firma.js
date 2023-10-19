@@ -25,10 +25,12 @@ router.post("/upload", upload.single("firma"), async (req, res) => {
   //save firma
   await firma.save();
 
-  res.json({
-    status: "SUCCESS",
-    message: "Firma guardada",
-    data: result,
+  firma.save().then((result) => {
+    res.json({
+      status: "SUCCESS",
+      message: "Firma guardada",
+      data: result,
+    });
   });
 });
 
