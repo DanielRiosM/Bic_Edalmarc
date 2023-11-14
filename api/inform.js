@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const inform = require("../models/inform");
 
+// Acentos
 const app = express();
 
 app.use(express.urlencoded({extended: true}));
