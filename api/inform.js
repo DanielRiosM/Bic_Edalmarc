@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const inform = require("../models/inform");
 //hola
+//hola
+//hola
 router.post("/createInform", (req, res) => {
   let fechaInicio = req.body.fechaInicio;
   let fechaFinal = req.body.fechaFinal;
