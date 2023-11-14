@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const masons = require("../models/masons");
 
+// Acentos
 const app = express();
 
 app.use(express.urlencoded({extended: true}));
