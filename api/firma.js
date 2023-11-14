@@ -29,6 +29,7 @@ router.post("/upload", upload.single("firma"), async (req, res) => {
     res.json({
       status: "SUCCESS",
       message: "Firma guardada",
+      data: result
       });
     });
   });
