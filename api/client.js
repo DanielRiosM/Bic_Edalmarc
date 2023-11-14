@@ -2,6 +2,11 @@ const express = require("express");
 const router = express.Router();
 const client = require("../models/client");
 
+const app = express();
+
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
 //Creacion del cliente
 router.post("/crearCliente", (req, res) => {
   let nombre = req.body.nombre;
