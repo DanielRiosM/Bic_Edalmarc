@@ -32,7 +32,7 @@ router.post("/upload", upload.single("firma"), async (req, res) => {
       data: result,
     });
   });
-});
+ 
 
 //leer firmas guardadas
 router.get("/read", async (req, res) => {
