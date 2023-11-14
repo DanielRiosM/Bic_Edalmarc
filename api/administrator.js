@@ -2,6 +2,11 @@ const express = require("express");
 const router = express.Router();
 const administrator = require("../models/administrator");
 
+const app = express();
+
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
 //password
 const bcrypt = require("bcrypt");
 //sign up
